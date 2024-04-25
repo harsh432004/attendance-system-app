@@ -22,8 +22,8 @@ portnumber = "10811"
 password = 'G5MHrrxm9c0uOE7dstbbVnUr0RLGpM27'
 
 r = redis.StrictRedis(host=hostname,
-                      port=portnumber,
-                      password=password)
+                    port=portnumber,
+                    password=password)
 
 # Retrive Data from database
 def retrive_data(name):

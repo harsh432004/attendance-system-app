@@ -16,7 +16,9 @@ registration_form = face_rec.RegistrationForm()
 # form
 person_name = st.text_input(label='Name',placeholder='First & Last Name')
 role = st.selectbox(label='Select your Role',options=('Student',
-                                                      'Teacher'))
+                                                    'High Authority'
+                                                    'Teaching Faculty',
+                                                    'Non-Teaching Faculty'))
 
 
 # step-2: Collect facial embedding of that person

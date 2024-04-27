@@ -163,13 +163,11 @@ class RegistrationForm:
             text = f"samples = {self.sample}"
             cv2.putText(frame,text,(x1,y1),cv2.FONT_HERSHEY_DUPLEX,0.6,(255,255,0),2)
             
-            # facial features
             embeddings = res['embedding']
             
         return frame, embeddings
     
     def save_data_in_redis_db(self,name,role):
-        # validation name
         if name is not None:
             if name.strip() != '':
                 key = f'{name}@{role}'
@@ -178,25 +176,20 @@ class RegistrationForm:
         else:
             return 'name_false'
         
-        # if face_embedding.txt exists
         if 'face_embedding.txt' not in os.listdir():
             return 'file_false'
         
         
-        # step-1: load "face_embedding.txt"
         x_array = np.loadtxt('face_embedding.txt',dtype=np.float32) # flatten array            
         
-        # step-2: convert into array (proper shape)
         received_samples = int(x_array.size/512)
         x_array = x_array.reshape(received_samples,512)
         x_array = np.asarray(x_array)       
         
-        # step-3: cal. mean embeddings
         x_mean = x_array.mean(axis=0)
         x_mean = x_mean.astype(np.float32)
         x_mean_bytes = x_mean.tobytes()
         
-        # step-4: save this into redis database
         # redis hashes
         r.hset(name='academy:register',key=key,value=x_mean_bytes)
         

@@ -12,3 +12,5 @@ with st.spinner("Developed by Harsh Vaidya"):
 st.success('Welcome to Our System')
 st.success('All set! Please enter your details in registration form if you are new user!')
 st.success('If you already enrolled in this system then please go in Real Time Prediction and start the cam!')
+
+

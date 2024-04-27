@@ -8,7 +8,7 @@ st.subheader('Reporting')
 name = 'attendance:logs'
 
 def load_logs(name, end=-1):
-    logs_list = face_rec.r.lrange(name, start=0, end=end)  # extract all data from the redis database
+    logs_list = face_rec.r.lrange(name, start=0, end=end)  
     return logs_list
 
 tab1, tab2, tab3 = st.tabs(['Registered Data', 'Logs', 'Attendance Report'])
@@ -54,7 +54,7 @@ with tab3:
         report_df["Duration_hours"] = report_df["Duration_seconds"] / 3600
 
         # Add Status column based on Duration_seconds
-        report_df['Status'] = report_df['Duration_seconds'].apply(lambda x: 'Present' if x >= 30 * 60 else 'Absent')
+        report_df['Status'] = report_df['Duration_seconds'].apply(lambda x: 'Present' if x >= 1 * 60 else 'Absent')
 
         # Display the DataFrame with Status column after Duration_seconds and Duration_hours
         st.dataframe(report_df[['Date', 'Name', 'Role', 'In_time', 'Out_time', 'Duration_seconds', 'Duration_hours', 'Status']])

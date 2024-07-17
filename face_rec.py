@@ -17,9 +17,9 @@ import os
 
 
 # Connect to Redis Client
-hostname = 'redis-10811.c267.us-east-1-4.ec2.cloud.redislabs.com'
-portnumber = "10811"
-password = 'G5MHrrxm9c0uOE7dstbbVnUr0RLGpM27'
+hostname = 'redis-13534.c323.us-east-1-2.ec2.redns.redis-cloud.com'
+portnumber = "13534"
+password = 'a2EcGD8o9MLNZvlReCU2eCW48N4iltkD'
 
 r = redis.StrictRedis(host=hostname,
                     port=portnumber,
@@ -45,7 +45,7 @@ faceapp.prepare(ctx_id = 0, det_size=(640,640), det_thresh = 0.5)
 
 # ML Search Algorithm
 def ml_search_algorithm(dataframe,feature_column,test_vector,
-                        name_role=['Name','Role'],thresh=0.5):
+                        name_role=['Name','Role'],thresh=0.5): # here we are implimenting cosine similarity-based search algorithm
     """
     cosine similarity base search algorithm
     """

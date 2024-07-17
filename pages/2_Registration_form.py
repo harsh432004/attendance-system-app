@@ -23,8 +23,7 @@ role = st.selectbox(label='Select your Role',options=('Student',
 def video_callback_func(frame):
     img = frame.to_ndarray(format='bgr24') # 3d array bgr
     reg_img, embedding = registration_form.get_embedding(img)
-    # two step process
-    # 1st step save data into local computer txt
+
     if embedding is not None:
         with open('face_embedding.txt',mode='ab') as f:
             np.savetxt(f,embedding)

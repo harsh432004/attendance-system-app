@@ -17,9 +17,9 @@ import os
 
 
 # Connect to Redis Client
-hostname = 'redis-13534.c323.us-east-1-2.ec2.redns.redis-cloud.com'
-portnumber = "13534"
-password = 'a2EcGD8o9MLNZvlReCU2eCW48N4iltkD'
+hostname = ''
+portnumber = ""
+password = ''
 
 r = redis.StrictRedis(host=hostname,
                     port=portnumber,

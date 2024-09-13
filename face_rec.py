@@ -17,13 +17,10 @@ import os
 
 
 # Connect to Redis Client
-hostname = 'redis-15382.c277.us-east-1-3.ec2.redns.redis-cloud.com'
-portnumber = "15382"
-password = 'aVM34EdTiZHjNCqsGlQrtj0wDI0ea7ll'
 
-r = redis.StrictRedis(host=hostname,
-                    port=portnumber,
-                    password=password)
+r = redis.StrictRedis(host='redis-13028.c93.us-east-1-3.ec2.redns.redis-cloud.com',
+                    port=13028,
+                    password='u1M738HF2YCWPYDMVEtxdqmDAP2T0pkA')
 
 # Retrive Data from database
 def retrive_data(name):

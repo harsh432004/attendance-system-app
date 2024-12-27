@@ -104,6 +104,10 @@ The **Face Attendance System App** is designed to simplify attendance management
 
 This project can be used in your college project and also used in hackathons 😀
 
+## Deploymet Guide
+- For more information on how to deploy the Attendance System, check out the documentation at [Attendance System Deployment Docs](https://attendance-system-app-deploymentdocs.vercel.app/).
+
+
 ## Contributors
 
 - Harsh Vaidya - Lead Developer

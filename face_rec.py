@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import cv2
-
+from auth import authenticator
 import redis
 
 # insight face
@@ -16,11 +16,14 @@ import os
 
 
 
-# Connect to Redis Client
+# visit website: https://cloud.redis.io and create a redis connection and add hostname and portnumber and password
+hostname = 'your redis connection string'
+portnumber = "port_number"
+password = 'Your redis password'
 
-r = redis.StrictRedis(host='redis-13028.c93.us-east-1-3.ec2.redns.redis-cloud.com',
-                    port=13028,
-                    password='u1M738HF2YCWPYDMVEtxdqmDAP2T0pkA')
+r = redis.StrictRedis(host=hostname,
+                    port=portnumber,
+                    password=password)
 
 # Retrive Data from database
 def retrive_data(name):
@@ -42,7 +45,7 @@ faceapp.prepare(ctx_id = 0, det_size=(640,640), det_thresh = 0.5)
 
 # ML Search Algorithm
 def ml_search_algorithm(dataframe,feature_column,test_vector,
-                        name_role=['Name','Role'],thresh=0.5): # here we are implimenting cosine similarity-based search algorithm
+                        name_role=['Name','Role'],thresh=0.5):
     """
     cosine similarity base search algorithm
     """
@@ -160,11 +163,13 @@ class RegistrationForm:
             text = f"samples = {self.sample}"
             cv2.putText(frame,text,(x1,y1),cv2.FONT_HERSHEY_DUPLEX,0.6,(255,255,0),2)
             
+            # facial features
             embeddings = res['embedding']
             
         return frame, embeddings
     
     def save_data_in_redis_db(self,name,role):
+        # validation name
         if name is not None:
             if name.strip() != '':
                 key = f'{name}@{role}'
@@ -173,20 +178,25 @@ class RegistrationForm:
         else:
             return 'name_false'
         
+        # if face_embedding.txt exists
         if 'face_embedding.txt' not in os.listdir():
             return 'file_false'
         
         
+        # step-1: load "face_embedding.txt"
         x_array = np.loadtxt('face_embedding.txt',dtype=np.float32) # flatten array            
         
+        # step-2: convert into array (proper shape)
         received_samples = int(x_array.size/512)
         x_array = x_array.reshape(received_samples,512)
         x_array = np.asarray(x_array)       
         
+        # step-3: cal. mean embeddings
         x_mean = x_array.mean(axis=0)
         x_mean = x_mean.astype(np.float32)
         x_mean_bytes = x_mean.tobytes()
         
+        # step-4: save this into redis database
         # redis hashes
         r.hset(name='academy:register',key=key,value=x_mean_bytes)
         

@@ -1,8 +1,8 @@
 credentials:
   usernames:
     admin:
-      email: 'datascienceanywhere@gmail.com'
-      name: 'Data Science Anywhere'
+      email: 'harshvaidya432004@gmail.com'
+      name: 'Harsh Vaidya'
       password: '$2b$12$E6KynjheUfekYhIcvTWI4eF0MhtLgtTSmu8vmH5WexfGWwOCSzR7W' # hashed password of 'abc'
       # to generate hashed password use below code.
       # hashed_passwords = stauth.Hasher(['abc').generate()
@@ -13,4 +13,4 @@ cookie:
   name: 'some_cookie_name'
 preauthorized:
   emails:
-  - 'datascienceanywhere@gmail.com'
+  - 'harshvaidya432004@gmail.com'

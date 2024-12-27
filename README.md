@@ -100,9 +100,9 @@ The **Face Attendance System App** is designed to simplify attendance management
 - Test changes locally before submitting
 - Include comments and documentation for new features
 
-## License
+## Fun-Fact
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project can be used in your college project and also used in hackathons 😀
 
 ## Contributors
 

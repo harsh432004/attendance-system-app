@@ -1,0 +1,54 @@
+name: Repository Automations
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited, closed, merged]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome New Users
+        uses: behaviorbot/welcome@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apply Labels Automatically
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          labels-map: |
+            bug: 'bug'
+            enhancement: 'feature request'
+            documentation: 'docs'
+
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stale Bot
+        uses: actions/stale@v7
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: >
+            This issue has been marked as stale due to inactivity. Please update it if it's still relevant! ⏳
+          stale-pr-message: >
+            This pull request has been marked as stale due to inactivity. Please update it if you’d like it to be merged! 📌
+          days-before-stale: 30
+          days-before-close: 7
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'pinned, important'
+
+  reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Reminder
+        uses: behaviorbot/reminder@v1
+        with:
+          who: 'contributor'
+          when: 'in 3 days'
+          what: 'Please ensure your contribution aligns with our guidelines. Update the PR if required! 📄'

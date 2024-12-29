@@ -1,13 +1,16 @@
 name: 'Greetings'
 
 on:
-  fork:
   push:
     branches: [main]
   issues:
     types: [opened]
   pull_request_target:
     types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
 
 jobs:
   welcome:
@@ -17,9 +20,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # Print GitHub actor for debugging
+      - name: Print GitHub actor
+        run: echo "GitHub actor is ${{ github.actor }}"
+
       # Sending a custom greeting message to issues and PRs
       - name: Welcome new issue or PR
-        uses: EddieHubCommunity/gh-action-welcome@v1
+        uses: EddieHubCommunity/gh-action-welcome@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "Welcome, @${{ github.actor }}! Your issue is like a spark that ignites innovation. We're thrilled to dive into it and work together to find a solution."

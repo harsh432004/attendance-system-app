@@ -8,3 +8,5 @@ streamlit-webrtc
 insightface
 onnxruntime
 streamlit-authenticator
+flake8
+black

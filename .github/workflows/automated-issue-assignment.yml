@@ -1,0 +1,17 @@
+name: Automated Issue Assignment
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Assign Issue based on Labels
+        uses: kentaro-m/auto-assign-action@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: 'username'  # Replace with the GitHub username of the assignee
+          labels: 'bug, feature'  # Replace with the labels to match

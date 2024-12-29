@@ -144,6 +144,18 @@ When opening an issue:
 - Be descriptive about the problem
 - Include steps to reproduce the issue
 - For feature requests, explain the feature in detail and why it would be beneficial
+- ## 🚨 Reporting Issues
+
+We use different issue templates to track various types of issues. When creating a new issue, please select the appropriate template from the list:
+
+- 🐞 **Bug Report** – If you found a bug or error in the system.
+- 🔖 **Documentation Update** – If you think the documentation needs improvements.
+- ✨ **Feature Request** – If you have an idea for a new feature or enhancement.
+- 👯‍♂️ **Style Change Request** – If you would like to suggest changes to the design or styling.
+- ⚠️ **Security Vulnerability** – If you discovered a security issue, please follow our security policy.
+
+Click on the "New issue" button above to get started, and please select the relevant template!
+
 
 ## Questions
 

@@ -20,13 +20,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Print GitHub actor for debugging
-      - name: Print GitHub actor
-        run: echo "GitHub actor is ${{ github.actor }}"
-
-      # Sending a custom greeting message to issues and PRs
+      # Sending a custom greeting message to issues and PRs using peter-evans/welcome
       - name: Welcome new issue or PR
-        uses: EddieHubCommunity/gh-action-welcome@main
+        uses: peter-evans/welcome@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           issue-message: "Welcome, @${{ github.actor }}! Your issue is like a spark that ignites innovation. We're thrilled to dive into it and work together to find a solution."

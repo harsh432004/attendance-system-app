@@ -24,8 +24,14 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           labels-map: |
             bug: 'bug'
-            enhancement: 'feature request'
+            enhancement: 'feature'
             documentation: 'docs'
+            duplicate: 'duplicate'
+            help: 'help wanted'
+            question: 'question'
+            good-first-issue: 'good first issue'
+            invalid: 'invalid'
+            wontfix: 'wontfix'
 
   stale:
     runs-on: ubuntu-latest

@@ -19,3 +19,6 @@ firstPRMergeComment: >
   Congrats on merging your first pull request! We here at behaviorbot are proud of you!
 
 # It is recommended to include as many gifs and emojis as possible!
+              - name: Welcome New Users
+                uses: wow-actions/welcome@v1.3.1
+            

@@ -10,8 +10,10 @@ COPY . /app
 # Copy the .env file
 COPY .env /app/.env
 
-# Install system dependencies
+# Install system dependencies and build tools required for installing packages like 'insightface'
 RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
     libglib2.0-0 libsm6 libxrender1 libxext6 && \
     rm -rf /var/lib/apt/lists/*
 

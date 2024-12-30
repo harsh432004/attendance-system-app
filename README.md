@@ -68,7 +68,11 @@ The **Face Attendance System App** is designed to simplify attendance management
    ```sh
    streamlit run app.py
    ```
+## Docker Setup
 
+1. **Build the Docker image:**
+   ```bash
+   docker build -t attendance-system-app .
 ## Contributing
 
 1. **Fork the Repository**

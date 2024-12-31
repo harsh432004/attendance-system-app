@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  variables:
+    # Define any environment variables here if needed
+    PYTHON_VERSION: "3.8"  # Set the version of Python you want to use
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8  # Specify Python runtime version
+    commands:
+      # Install dependencies, e.g., from requirements.txt
+      - echo Installing dependencies...
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo Pre-build steps can go here, if needed (e.g., database setup)
+
+  build:
+    commands:
+      - echo Running build...
+      - python -m pytest  # If you're using pytest for testing
+      - streamlit run Home.py  # Corrected command to run the Streamlit app
+
+  post_build:
+    commands:
+      - echo Post-build steps (e.g., deploy or cleanup)
+      - echo Build complete!
+
+artifacts:
+  files:
+    - '**/*'  # Include all files from the project (e.g., generated files, logs, etc.)
+  discard-paths: yes  # Optional: discard directory paths in the output artifact

@@ -40,22 +40,28 @@ For a live demo, visit the deployed version at: 13.60.199.34
 # 🔧 Project Setup for Contributors
 
 To contribute effectively, follow these detailed setup instructions:
+## 🚀 How to Run the Project
+Follow the steps below to set up and run the project locally:
 
-## Setting Up the Development Environment
-
-### 1. Set Up a Virtual Environment
+### 1. Clone the Repository
+Clone the repository to your local machine using the following command:
+git clone https://github.com/your-username/attendance-system-app
+### 2. Navigate to the Project Directory
+Move to the project folder:
+cd attendance-system-app
+### 3. Set Up a Virtual Environment
 python -m venv venv
 source venv/bin/activate   # On Windows: venv\Scripts\activate
-### 2. Install Required Libraries
+### 4. Install Required Libraries
 pip install -r requirements.txt
 pip install insightface
-### 3. Download Required Models
+### 5. Download Required Models
 Download the buffalo_l and buffalo_sc models from the official InsightFace repository.
 Place the downloaded models in the appropriate directory within the project.
-### 4. Set up Redis
+### 6. Set up Redis
 Install and configure a Redis instance.
 You can use either Redis Cloud or install Redis locally on your machine.
-### 5. Run for Development
+### 7. Run for Development
 streamlit run app.py
 
 
@@ -73,10 +79,8 @@ git checkout -b feature-name
 ### 3. Make Changes
 Implement your changes and test thoroughly.
 ### 4. Commit Changes
-Copy code
 git commit -m "Description of changes"
 ### 5. Push Changes
-Copy code
 git push origin feature-name
 ### 6. Create a Pull Request
 Submit a pull request with a clear description of your changes.
@@ -85,6 +89,22 @@ Submit a pull request with a clear description of your changes.
 - Ensure code adheres to the project's coding standards.
 - Test changes locally before submitting.
 - Provide comments and documentation for new features.
+
+---
+## 🚀 How to Deploy the Project
+
+To deploy the project in a production environment, follow these steps:
+
+### 1. Docker Setup
+
+#### Build the Docker Image
+Build the Docker image for the project with the following command:
+docker build -t attendance-system-app .
+
+#### Run the Docker Container
+Run the container with the following command:
+docker run -p 8501:8501 attendance-system-app
+Access the application at http://localhost:8501.
 
 ---
 

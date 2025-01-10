@@ -29,8 +29,4 @@ Follow these steps to set up and run the application on your local machine:
 ```bash
 git clone https://github.com/harsh432004/attendance-system-app
 
-### 2. Navigate to the Project Directory
-```bash
-cd attendance-system-app
-
 

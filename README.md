@@ -88,6 +88,18 @@ Submit a pull request with a clear description of your changes.
 
 ---
 
+# 📋 Code of Conduct
+
+We are committed to creating a welcoming and inclusive environment for all contributors. By participating in this project, you agree to adhere to the following guidelines:
+
+1. **Respectful Communication:** Be respectful and courteous to others. Harassment or discriminatory behavior will not be tolerated.
+2. **Constructive Feedback:** Provide constructive feedback and be open to receiving it.
+3. **Inclusive Environment:** Embrace diversity and encourage everyone to contribute, regardless of background or experience level.
+4. **Collaboration:** Collaborate with others to solve problems, share knowledge, and improve the project.
+5. **Stay Professional:** Keep discussions relevant to the project and refrain from inappropriate content.
+
+---
+
 ## 📖 Fun Fact
 This project is perfect for college projects and hackathons and demonstrates the practical application of advanced technologies like facial recognition.
 

@@ -25,8 +25,28 @@ Welcome to the **Face Attendance System App**! This Python-based application uti
 
 Follow these steps to set up and run the application on your local machine:
 
-### 1. Clone the Repository
-```bash
+### 1. Clone the Repository-- ```bash
 git clone https://github.com/harsh432004/attendance-system-app
+### 2. Navigate to The project directory--
+cd attendance-system-app
+### 3. Install Dependencies--
+pip install -r requirements.txt
+### 4. Run the Application--
+streamlit run app.py
+
+
+
+# 🔧 Project Setup for Contributors
+
+To contribute effectively, follow these detailed setup instructions:
+
+## Setting Up the Development Environment
+
+### Set Up a Virtual Environment
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+
+
 
 

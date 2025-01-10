@@ -29,35 +29,4 @@ Follow these steps to set up and run the application on your local machine:
 ```bash
 git clone https://github.com/harsh432004/attendance-system-app
 
-### 2. Navigate to the Project Directory
-```bash
-cd attendance-system-app
-## 3. Install Dependencies
-To install the necessary dependencies, run the following command:
 
-```bash
-pip install -r requirements.txt
-
-### 4. Run the Application
-bash
-Copy code
-streamlit run app.py
-### 5. Access the App
-Open your web browser and visit: http://localhost:8501
-For a live demo, visit the deployed version at: 13.60.199.34
-
-# 🔧 Project Setup for Contributors
-
-To contribute effectively, follow these detailed setup instructions:
-
-## Setting Up the Development Environment
-
-### Set Up a Virtual Environment
-```bash
-python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-##Install Required Libraries
-bash
-Copy code
-pip install -r requirements.txt
-pip install insightface

@@ -1,21 +1,28 @@
 import streamlit as st
-from auth import authenticator
-st.set_page_config(page_title='Attendance System',layout='wide')
+from auth import redirect_to_auth0, handle_callback, is_logged_in, logout
 
+st.set_page_config(page_title='Attendance System', layout='wide')
 
+def main():
 
-if st.session_state['authentication_status']:
-    authenticator.logout('Logout', 'sidebar', key='unique_key')
+    st.title("Attendance System with Auth0 Authentication")
 
-    st.write(f'Welcome *{st.session_state["name"]}*')
+    # Handle Auth0 callback
+    if 'code' in st.query_params:
+        handle_callback()
 
+    # Check if the user is logged in
+    if is_logged_in():
+        user = st.session_state['user']
+        st.success(f"Welcome, {user.get('name', 'User')}!")
 
+        logout()   #It will display logout button and onclick logout functionality
 
-    st.header('Attendance System using Face Recognition')
+        # st.success("Model loaded successfully.")
+        # st.success("Redis DB connected successfully.")
+    else:
+        st.warning("To access this site, please log in.")
+        redirect_to_auth0()
 
-    st.success('Model loaded sucesfully')
-    st.success('Redis db sucessfully connected')
-
-else:
-    authenticator.login('Login', 'main')
-
+if __name__ == "__main__":
+    main()

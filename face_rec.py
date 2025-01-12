@@ -7,6 +7,9 @@ from dotenv import load_dotenv
 import os
 from sklearn.metrics.pairwise import cosine_similarity  
 from datetime import datetime
+from database.redis_client import save_attendance_log
+from utils.sync_service import sync_redis_to_mongo
+from datetime import datetime
 
 
 # Load environment variables from .env file
@@ -120,6 +123,23 @@ def ml_search_algorithm(dataframe, feature_column, test_vector,
         
     return person_name, person_role
 
+class RealTimePred:
+    def saveLogs_redis(self):
+        """Save logs to Redis and sync to MongoDB"""
+        # Save current batch to Redis
+        for name, role, timestamp in zip(
+            self.logs['name'], 
+            self.logs['role'],
+            self.logs['current_time']
+        ):
+            if name != 'Unknown':
+                save_attendance_log(name, role, timestamp)
+        
+        # Sync to MongoDB periodically
+        sync_redis_to_mongo()
+        
+        # Reset logs
+        self.reset_dict()
 
 ### Real Time Prediction
 # we need to save logs for every 1 mins
@@ -268,3 +288,5 @@ def save_data_in_redis_db(self, name, role):
         self.reset()
         
         return True
+    
+    

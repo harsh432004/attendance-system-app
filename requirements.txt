@@ -10,3 +10,6 @@ onnxruntime
 streamlit-authenticator
 flake8
 black
+pymongo
+pydantic-settings
+python-dotenv

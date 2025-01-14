@@ -1,6 +1,6 @@
-**Face Attendance System App**
+Face Attendance System App
 
-Welcome to the Face Attendance System App! 
+Welcome to the Face Attendance System App!
 🚀 This Python-based application leverages InsightFace for advanced facial recognition and Streamlit for an intuitive, user-friendly interface. Developed by Harsh Vaidya, this project aims to revolutionize attendance management through cutting-edge technology.
 
 🌟 About the Project
